@@ -31,7 +31,7 @@ def encrypt(currentArray: list, reverse) -> tuple[str, list[str]]:
     if "p" in cipher:
         out, currentArray = encryptPolybius(currentArray, reverse)
     elif "r" in cipher:
-        out, currentArray =  encryptTransform`(currentArray, reverse)
+        out, currentArray =  encryptTransform(currentArray, reverse)
     else:
         out = None
     return out, currentArray
