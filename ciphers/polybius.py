@@ -11,7 +11,6 @@ def encrypt(currentArray: list[str], reverse: bool) -> tuple[str, list[str]]:
         # Ensure string has an even number of characters by removing the last one if it doesn't
         string = string[:-1] if len(string) % 2 != 0 else string
         out = ""
-        print(string)
         for i in range(0, len(string), 2):
             if string[i] == ".":
                 out += string[i + 1]
