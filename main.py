@@ -1,6 +1,7 @@
 import os
 from ciphers.transform import encrypt as encryptTransform
 from ciphers.polybius import encrypt as encryptPolybius
+from ciphers.extendedPolybius import encrypt as encryptExtendedPolybius
 
 close = False
 currentArray = ["ABCDE", "FGHIJ", "KLMNO", "PQRST", "UVWXY"]
@@ -22,6 +23,7 @@ def encrypt(currentArray: list, reverse) -> tuple[str, list[str]]:
     print("\n"*consoleY)
     print("Select the cipher to use. Type any combination of the following in order")
     print(f"{green }[P] Polybius Square")
+    print(f"{green }[E] Extended Polybius")
     print(f"{green }[R] Rotation")
     print()
     print(f"{red   }[Q] Back")
@@ -32,6 +34,8 @@ def encrypt(currentArray: list, reverse) -> tuple[str, list[str]]:
         out, currentArray = encryptPolybius(currentArray, reverse)
     elif "r" in cipher:
         out, currentArray =  encryptTransform(currentArray, reverse)
+    elif "e" in cipher:
+        out, currentArray = encryptExtendedPolybius(currentArray, reverse)
     else:
         out = None
     return out, currentArray
