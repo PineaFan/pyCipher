@@ -35,7 +35,7 @@ def encrypt(currentArray: list[str], reverse: bool) -> tuple[str, list[str]]:
     out = None
     if reverse:
         string = input("Enter the string to decrypt: ")
-        checkSum = sum([int(n) for n in string[1:] if n.isnumeric()] + [0])
+        checkSum = sum([bases.index(n) for n in string[1:] if n in bases] + [0])
         base = None
         for i in range(2, len(bases)):
             if bases[(checkSum + i) % len(bases)] == string[0]:
@@ -74,7 +74,7 @@ def encrypt(currentArray: list[str], reverse: bool) -> tuple[str, list[str]]:
                 out += polybius[i]
             else:
                 out += "." + i
-        checkSum = sum([int(n) for n in out if n.isnumeric()] + [0])
+        checkSum = sum([bases.index(n) for n in string[1:] if n in bases] + [0])
         baseNumber = bases[(checkSum + int(base)) % len(bases)]
         out = baseNumber + out
     return out, currentArray
